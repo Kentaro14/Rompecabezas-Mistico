@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rompecabeza Mistico</title>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Open+Sans&display=swap"
+        rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/817b833d26.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/game.css">
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 load">
+                <form action="" id="input-form">
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile"
+                                accept="image/x-png,image/gif,image/jpeg">
+                            <label data-browse="Elegir" class="custom-file-label" for="inputGroupFile01">Seleccionar Archivo</label>
+                        </div>
+                    </div>
+                </form>
+                <div class="rounded-lg text-center p-3">
+                    <button id="botonIniciar" onclick="startGame()" >Jugar</button>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="piece-group">
+                    <div data-positionO=16 data-pieceO=1 onclick="selectElement(this)"></div>
+                    <div data-positionO=15 data-pieceO=2 onclick="selectElement(this)"></div>
+                    <div data-positionO=14 data-pieceO=6 onclick="selectElement(this)"></div>
+                    <div data-positionO=13 data-pieceO=5 onclick="selectElement(this)"></div>
+                </div>
+            </div>
+            <div class="stats col-4 ">
+                <h2 id="movimientos">Movimientos: 0</h2>
+                <br>
+                <h2 id="timer">Tiempo: 00:00</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="piece-group">
+                    <div data-positionO=12 data-pieceO=7 onclick="selectElement(this)"></div>
+                    <div data-positionO=11 data-pieceO=9 onclick="selectElement(this)"></div>
+                    <div data-positionO=10 data-pieceO=3 onclick="selectElement(this)"></div>
+                    <div data-positionO=9 data-pieceO=8 onclick="selectElement(this)"></div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="puzzle" id="puzzle-board">
+                    <div data-position=16 data-piece=16 onclick="selectElement(this)"></div>
+                    <div data-position=15 data-piece=2 onclick="selectElement(this)"></div>
+                    <div data-position=14 data-piece=6 onclick="selectElement(this)"></div>
+                    <div data-position=13 data-piece=5 onclick="selectElement(this)"></div>
+                    <div data-position=12 data-piece=7 onclick="selectElement(this)"></div>
+                    <div data-position=11 data-piece=9 onclick="selectElement(this)"></div>
+                    <div data-position=10 data-piece=3 onclick="selectElement(this)"></div>
+                    <div data-position=9 data-piece=8 onclick="selectElement(this)"></div>
+                    <div data-position=8 data-piece=4 onclick="selectElement(this)"></div>
+                    <div data-position=7 data-piece=12 onclick="selectElement(this)"></div>
+                    <div data-position=6 data-piece=1 onclick="selectElement(this)"></div>
+                    <div data-position=5 data-piece=15 onclick="selectElement(this)"></div>
+                    <div data-position=4 data-piece=10 onclick="selectElement(this)"></div>
+                    <div data-position=3 data-piece=11 onclick="selectElement(this)"></div>
+                    <div data-position=2 data-piece=14 onclick="selectElement(this)"></div>
+                    <div data-position=1 data-piece=13 onclick="selectElement(this)"></div>
+
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="piece-group">
+                    <div data-positionO=8 data-pieceO=4 onclick="selectElement(this)"></div>
+                    <div data-positionO=7 data-pieceO=12 onclick="selectElement(this)"></div>
+                    <div data-positionO=6 data-pieceO=16 onclick="selectElement(this)"></div>
+                    <div data-positionO=5 data-pieceO=15 onclick="selectElement(this)"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 home">
+                <a href="./menu.html"><i class="fas fa-home fa-3x"></i></a>
+            </div>
+            <div class="col-4">
+                <div class="piece-group">
+                    <div data-positionO=4 data-pieceO=10 onclick="selectElement(this)"></div>
+                    <div data-positionO=3 data-pieceO=11 onclick="selectElement(this)"></div>
+                    <div data-positionO=2 data-pieceO=14 onclick="selectElement(this)"></div>
+                    <div data-positionO=1 data-pieceO=13 onclick="selectElement(this)"></div>
+                </div>
+            </div>
+            <div class="col-4 align-items-center copy">
+                <p class="mx-auto">&copy; R & C Dev 2020 </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalMensaje" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title ml-auto mr-auto">ERROR</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger" role="alert" id="divalert">
+                        MENSAJE
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary mr-auto ml-auto"
+                        data-dismiss="modal">Entendido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalGanar" role="dialog">
+        <div class="modal-dialog">
+            <div class="card">
+                <div class="card-body text-center"> <img src="https://img.icons8.com/bubbles/200/000000/trophy.png">
+                    <h4>FELICITACIONES!</h4>
+                    <p>Rompecabezas terminado!</p> <button class="btn btn-primary">Salir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+    <script src="./js/game.js" type="text/javascript"></script>
+    </body>
+</html>
